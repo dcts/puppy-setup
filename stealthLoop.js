@@ -8,12 +8,8 @@ async function scrapePost(url, target) {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);
-
     const pageSource = await page.content();
-
     await browser.close();
-    console.log("page Source");
-    console.log(pageSource);
     return pageSource.includes(target);
 
   } catch (error) {
